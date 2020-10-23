@@ -2,18 +2,28 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Cheese Development",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+		{ "include": "#keywords" },
+		{ "include": "#strings" },
+		{ "include": "#comments" },
+		{ "include": "#types" },
+		{ "include": "#constants" },
+		{ "include": "#paren-expressions" }
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.xd",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(cabô|cêsabese|sinao|assim|negocio|tendeu|intao|trem|intaotabao|desembucha)\\b"
+			}, {
+				"name": "keyword.other.xd",
+				"match": "\\b(desembucha|uai|devorve|divididu|veiz|mais|menus|^elevado a$)\\b"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.xd",
+				"begin": "#",
+				"end": "\n"
 			}]
 		},
 		"strings": {
@@ -24,6 +34,42 @@
 				{
 					"name": "constant.character.escape.xd",
 					"match": "\\\\."
+				},
+				{
+					"name": "constant.numeric",
+					"match": "[0-9]"
+				}
+			]
+		},
+		"paren-expressions": {
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": { "name": "punctuation.paren.open" }
+			},
+			"endCaptures": {
+				"0": { "name": "punctuation.paren.close" }
+			},
+			"name": "expression.group",
+			"patterns": [{ "include": "#expression" }]
+		},
+		"types":{
+			"patterns": [
+				{
+				"name": "variable.language.xd"	,
+				"match": "\\b(?i)(Numero|NumeroQuebrado|Letra|Palavra|ZeriUm|ÉOuNumÉ|Bolota|Lista|Vetorr|Marpa|Parr|Pia|Fila|Documento)\\b"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+				"name": "constant.character",
+				"match": "(ou|^i$|ingualzin|ingual|nadavê com|menó que|maió que)"
+				},
+				{
+				"name": "constant.language",
+				"match": "\\b(?i)(cêsabese|sinão|uai|trem)\\b"
 				}
 			]
 		}
