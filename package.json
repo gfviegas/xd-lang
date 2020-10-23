@@ -1,0 +1,25 @@
+{
+    "name": "xd-lang",
+    "displayName": "XD Lang",
+    "description": "Syntax Highlight para a linguagem XD",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "xd",
+            "aliases": ["Cheese Development", "xd"],
+            "extensions": [".uai",".xd"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "xd",
+            "scopeName": "raiz.uai",
+            "path": "./syntaxes/xd.tmLanguage.json"
+        }]
+    }
+}
